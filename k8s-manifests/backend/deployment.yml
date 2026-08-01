@@ -40,7 +40,7 @@ spec:
         - name: JWT_EXPIRATION_MS
           value: "86400000"
         - name: CORS_ALLOWED_ORIGINS
-          value: "*"
+          value: "http://13.63.168.2:30081"
 
         readinessProbe:
           httpGet:
