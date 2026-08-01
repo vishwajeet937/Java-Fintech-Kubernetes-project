@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: frontend
   namespace: banking
 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: frontend
   template:
     metadata:
       labels:
-        app: backend
+        app: frontend
     spec:
       nodeSelector:
         kubernetes.io/hostname: worker-node-1
       containers:
-      - name: backend
-        image: vishwajeetkumar937/java-banking-backend:1.0
+      - name: frontend
+        image: vishwajeetkumar937/java-banking-frontend:1.0
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 
         env:
         - name: DB_URL
