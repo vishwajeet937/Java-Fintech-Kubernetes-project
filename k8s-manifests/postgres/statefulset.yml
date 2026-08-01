@@ -10,7 +10,7 @@ spec:
   selector:
     matchLabels:
       app: postgres
-
+  
   template:
     metadata:
       labels:
@@ -26,22 +26,22 @@ spec:
             - containerPort: 5432
           envFrom:
             - secretRef:
-                name: postgress-secret
+                name: postgres-secret
           volumeMounts:
             - name: postgres-storage
-              mountPath: /var/lib/postgresql/data
+              mountPath: /var/lib/postgres/data
           readinessProbe:
             exec:
-              command: ["pg_isready", "-U", "banking_user", "-d", "bankingdb"]
+              command: ["pg_isready","-U","banking_user","-d","bankingdb"]
             initialDelaySeconds: 10
             periodSeconds: 5
 
-volumesClaimsTemplate:
-  - metadata:
-      name: postgres-storage
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      storageClassName: local-path
-      resources:
-        requests:
-          storage: 5Gi
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-storage
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: local-path    
+        resources:
+          requests:
+            storage: 5Gi     
