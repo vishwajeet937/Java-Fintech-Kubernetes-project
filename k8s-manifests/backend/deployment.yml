@@ -24,7 +24,7 @@ spec:
 
         env:
         - name: DB_URL
-          value: "jdbc:postgresql://postgres-service.banking.svc.cluster.local:5432/bankingdb"
+          value: "jdbc:postgresql://postgres-svc.banking.svc.cluster.local:5432/bankingdb"
         - name: DB_USERNAME
           valueFrom:
             secretKeyRef:
