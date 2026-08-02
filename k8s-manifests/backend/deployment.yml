@@ -39,7 +39,7 @@ spec:
           value: "1df0f6fe85156663c1c36121a92b3fc1702bcf52779752d63c25d75915bcd831"
         - name: JWT_EXPIRATION_MS
           value: "86400000"
-        - name: CORS_ALLOWED_ORIGINS
+        - name: CORS_ALLOWED_ORIGIN
           value: "http://13.51.239.25:30081,http://localhost:3000"
 
         readinessProbe:
