@@ -1,34 +1,32 @@
 prometheus:
   prometheusSpec:
     retention: 15d
-    nodeSelector:
+    nodeselector:
       role: monitoring
-      storageSpec:
-        valueCliamTemple:
-          spec:
-            storageClassName: local-path
-            accessModes: ["ReadWriteOnce"]
-            resources:
-              requests:
-                storage: 20Gi
-
-
-      resources:
-        requests:
-          cpu: 25m
-          memory: 512Mi
-        limits:
-          cpu: 500m
-          memory: 1Mi
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-path
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 20Gi
+    resources:
+      requests:
+        cpu: 250m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
 
 grafana:
-  persistence:
+  nodeselector:
     role: monitoring
   persistence:
-    enabled: true
+    enable: true
     storageClassName: local-path
     size: 5Gi
-  adminUser: "ChangePassword123!"
+  adminPassword: "StrongPassword123!"
   service:
     type: NodePort
     nodePort: 30090
