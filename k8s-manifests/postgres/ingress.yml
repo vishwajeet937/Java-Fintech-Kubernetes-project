@@ -8,24 +8,24 @@ metadata:
 
 spec:
   rules:
-  - host: bank.devopsvish.info
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend-svc
-            port:
-              number: 80
-
-  - host: api.bank.devopsvish.info
+    - host: bank.devopsvish.info
       http:
         paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: backend-svc
-              port:
-                number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-svc
+                port:
+                  number: 80
+
+    - host: api.bank.devopsvish.info
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-svc
+                port:
+                  number: 80
