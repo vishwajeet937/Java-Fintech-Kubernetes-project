@@ -10,7 +10,7 @@ RUN npm ci
 
 COPY frontend/ .
 
-ARG VITE_API_URL=http://13.51.239.25:30080/api
+ARG VITE_API_URL=http://api.bank.devopsvish.info/api
 RUN npm run build
 
 # ---------- Stage 2: serve the built files with Nginx ----------
